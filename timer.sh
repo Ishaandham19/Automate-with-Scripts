@@ -3,6 +3,11 @@
 # and sounds an alarm at the end of this time, while displaying the passing time
 # in HOURS:MINS:SECONDS Format
 
+if [[ $1 -eq 0 ]] ; then
+	echo "No argument provided";
+	exit 1;
+fi
+
 TIME_LIMIT=$(expr $1 "*" 60);
 echo "Starting Timer for $1 minute(s)"; 
 
@@ -17,6 +22,6 @@ while [[ "$SECONDS" -lt "$TIME_LIMIT" ]]; do
 done;
 
 echo -ne '\a';
-echo "TIMER IS DONE!"
+echo "TIMER IS DONE!";
 
 exit 0;
